@@ -346,7 +346,7 @@ export default class ChartContainer extends React.Component {
                     minDuration: this.props.minDuration,
                     showGrid: this.props.showGrid,
                     timeFormat: this.props.format,
-                    trackerShowTime: firstRow,
+                    trackerShowTime: this.props.showTrackerTime,
                     trackerTime: this.props.trackerPosition,
                     trackerTimeFormat: this.props.format,
                     trackerStyle: trackerStyle,
@@ -425,6 +425,7 @@ export default class ChartContainer extends React.Component {
                         width={chartsWidth}
                         height={chartsHeight}
                         showInfoBox={!!this.props.trackerValues}
+                        showTime={false}
                         time={this.props.trackerPosition}
                         timeScale={timeScale}
                         timeFormat={this.props.format}
@@ -645,6 +646,11 @@ ChartContainer.propTypes = {
     showGrid: PropTypes.bool,
 
     /**
+     * Should the time be shown on top of the tracker info box
+     */
+    showTrackerTime: PropTypes.bool,
+
+    /**
      * Defines whether grid is overlayed ("over"( or underlayed ("under")
      * with respect to the charts
      */
@@ -826,6 +832,7 @@ ChartContainer.defaultProps = {
     utc: false,
     showGrid: false,
     showGridPosition: "over",
+    showTrackerTime: false,
     timeAxisStyle: defaultTimeAxisStyle,
     titleStyle: defaultTitleStyle,
     trackerStyle: defaultTrackerStyle,
